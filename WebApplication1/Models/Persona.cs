@@ -12,7 +12,7 @@ namespace WebApplication1.Models
         [JsonProperty(PropertyName = "id")]
         public string id { get; set; }
 
-        [Required(ErrorMessage = "El campo Nombre es requerido")]
+        [Required(ErrorMessage = "El campo Identificación es requerido")]
         [JsonProperty(PropertyName = "Identificación")]
         public string Identificacion { get; set; }
 
