@@ -50,5 +50,7 @@ namespace LaboratorioAzureCosmos.Service
 
             return results;
         }
+
+
     }
 }
