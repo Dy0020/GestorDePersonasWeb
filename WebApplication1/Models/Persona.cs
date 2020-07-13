@@ -12,19 +12,19 @@ namespace WebApplication1.Models
         [JsonProperty(PropertyName = "id")]
         public string id { get; set; }
 
-        [Required(ErrorMessage = "El campo Identificación es requerido")]
+        [Required(ErrorMessage = "La identificación es requerida")]
         [JsonProperty(PropertyName = "Identificación")]
         public string Identificacion { get; set; }
 
-        [Required(ErrorMessage = "El campo Nombre es requerido")]
+        [Required(ErrorMessage = "El nombre es requerido")]
         [JsonProperty(PropertyName = "Nombre")]
         public string Nombre { get; set; }
 
-        [Required(ErrorMessage = "El campo Nombre es requerido")]
+        [Required(ErrorMessage = "El primer apellido es requerido")]
         [JsonProperty(PropertyName = "Primer Apellido")]
         public string PrimerApellido { get; set; }
 
-        [Required(ErrorMessage = "El campo Nombre es requerido")]
+        [Required(ErrorMessage = "El segundo apellido es requerido")]
         [JsonProperty(PropertyName = "Segundo Apellido")]
         public string SegundoApellido { get; set; }
 
