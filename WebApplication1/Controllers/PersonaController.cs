@@ -43,11 +43,5 @@ namespace LaboratorioAzureCosmos.Controllers
 
             return View(item);
         }
-
-        [ActionName("Details")]
-        public async Task<ActionResult> DetailsAsync(string id)
-        {
-            return View(await _cosmosDbService.GetItemAsync(id));
-        }
     }
 }

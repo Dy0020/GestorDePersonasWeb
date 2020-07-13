@@ -21,13 +21,13 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult CreateFoto()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(IFormFile files)
+        public async Task<IActionResult> CreateFoto(IFormFile files)
         {
             string blobstorageconnection = _configuration.GetValue<string>("blobstorage");
 
@@ -52,34 +52,6 @@ namespace WebApplication1.Controllers
             await cloudBlockBlob.UploadFromByteArrayAsync(dataFiles, 0, dataFiles.Length);
 
             return View();
-        }
-   
-        public async Task<IActionResult> ShowAllBlobs()
-        {
-            string blobstorageconnection = _configuration.GetValue<string>("blobstorage");
-            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(blobstorageconnection);
-            CloudBlobClient blobClient = cloudStorageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("contenedordearchivos");
-            CloudBlobDirectory dirb = container.GetDirectoryReference("contenedordearchivos");
-
-
-            BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(string.Empty,
-                true, BlobListingDetails.Metadata, 100, null, null, null);
-            List<DatosDeArchivos> fileList = new List<DatosDeArchivos>();
-
-            foreach (var blobItem in resultSegment.Results)
-            {
-
-                var blob = (CloudBlob)blobItem;
-                fileList.Add(new DatosDeArchivos()
-                {
-                    FileName = blob.Name,
-                    FileSize = Math.Round((blob.Properties.Length / 1024f) / 1024f, 2).ToString(),
-                    ModifiedOn = DateTime.Parse(blob.Properties.LastModified.ToString()).ToLocalTime().ToString()
-                });
-            }
-
-            return View(fileList);
         }
 
     }

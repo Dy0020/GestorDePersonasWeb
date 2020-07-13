@@ -37,21 +37,5 @@
             </div>
         </form>
     </div>
-
-    <div class="col-md-5">
-        <div class="form-group">
-            <label asp-for="Foto" class="control-label"></label>
-            <br />
-            <div>
-                @using (Html.BeginForm("SubirImagen", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <input type="file" name="files" class="form-control file-caption" required />
-                    <br />
-                    @*<input type="submit" name="submit" id="submit" value="subir" class="btn btn-outline-dark" />*@
-                }
-            </div>
-        </div>
-    </div>
-
 </div>
 
