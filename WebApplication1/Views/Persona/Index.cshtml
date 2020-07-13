@@ -1,50 +1,59 @@
 ﻿@model IEnumerable<WebApplication1.Models.Persona>
-   
-    @{
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
-    <center>
-        <h2>Lista De Personas</h2>
-    </center>
-    <br />
-    <p>
-        @Html.ActionLink("Agregar", "Create")
-    </p>
-    <center>
-        <table class="table" border="1">
-            <tr style="width: 150px; height: 55px; font-size: 20px; background-color: darkslategray" class="text-light" align="center">
-                <th>
-                    Identificación
-                </th>
-                <th>
-                    Nombre
-                </th>
-                <th>
-                   Primer Apellido
-                </th>
-                <th>
-                    Segundo Apellido
-                </th>
-         
-            </tr>
 
-            @foreach (var item in Model)
-            {
-                <tr style="background-color:lightgray" class="text-dark" align="center">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Identificacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PrimerApellido)
-                    </td>
-                    <td align="center">
-                        @Html.DisplayFor(modelItem => item.SegundoApellido)
-                    </td>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class=" Container-fluid">
+        <center>
+            <hr />
+            <h1>Lista De Personas</h1>
+            <hr />
+            <br />
+
+            <img src="~/lib/People.jpg" align="middle" width="450" />
+        </center>
+        <br />
+
+        <p>
+            <a asp-action="Create" class="btn btn-outline-dark">Agregar</a>
+         </p>
+           <center>
+            <table class="table table-borderless table-striped" border="1">
+                <tr style="width: 150px; height: 55px; font-size: 20px; background-color: darkslategray" class="text-light" align="center">
+                    <th>
+                        Identificación
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Primer Apellido
+                    </th>
+                    <th>
+                        Segundo Apellido
+                    </th>
+
                 </tr>
-            }
 
-        </table>
-    </center>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-dark" align="center">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Identificacion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrimerApellido)
+                        </td>
+                        <td align="center">
+                            @Html.DisplayFor(modelItem => item.SegundoApellido)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </center>
+    </div>

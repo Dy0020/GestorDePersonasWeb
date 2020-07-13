@@ -56,7 +56,7 @@ namespace LaboratorioAzureCosmos
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Persona}/{action=Create}/{id?}");
+                    pattern: "{controller=Persona}/{action=Index}/{id?}");
             });
         }
 
