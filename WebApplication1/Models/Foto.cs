@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication1.Models
 {
-    public class Imagen
+    public class Foto
     {
         public string Nombre { get; set; }
         public string UrlImagen { get; set; }

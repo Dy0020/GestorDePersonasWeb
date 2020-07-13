@@ -32,7 +32,7 @@ namespace LaboratorioAzureCosmos.Controllers
         [HttpPost]
         [ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync([Bind("id,Identificacion,Nombre,PrimerApellido,SegundoApellido,imagen")] Persona item)
+        public async Task<ActionResult> CreateAsync([Bind("id,Identificacion,Nombre,PrimerApellido,SegundoApellido,Foto")] Persona item)
         {
             if (ModelState.IsValid)
             {
