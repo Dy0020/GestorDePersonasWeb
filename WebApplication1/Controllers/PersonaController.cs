@@ -32,7 +32,7 @@ namespace LaboratorioAzureCosmos.Controllers
         [HttpPost]
         [ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateAsync([Bind("id,identificacion,Nombre,PrimerApellido,SegundoApellido,imagen")] Persona item)
+        public async Task<ActionResult> CreateAsync([Bind("id,Identificacion,Nombre,PrimerApellido,SegundoApellido,imagen")] Persona item)
         {
             if (ModelState.IsValid)
             {
@@ -42,63 +42,6 @@ namespace LaboratorioAzureCosmos.Controllers
             }
 
             return View(item);
-        }
-
-        [HttpPost]
-        [ActionName("Edit")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditAsync([Bind("id,identificacion,Nombre,PrimerApellido,SegundoApellido,imagen")] Persona item)
-        {
-            if (ModelState.IsValid)
-            {
-                await _cosmosDbService.UpdateItemAsync(item.id, item);
-                return RedirectToAction("Index");
-            }
-
-            return View(item);
-        }
-
-        [ActionName("Edit")]
-        public async Task<ActionResult> EditAsync(string id)
-        {
-            if (id == null)
-            {
-                return BadRequest();
-            }
-
-            Persona item = await _cosmosDbService.GetItemAsync(id);
-            if (item == null)
-            {
-                return NotFound();
-            }
-
-            return View(item);
-        }
-
-        [ActionName("Delete")]
-        public async Task<ActionResult> DeleteAsync(string id)
-        {
-            if (id == null)
-            {
-                return BadRequest();
-            }
-
-            Persona item = await _cosmosDbService.GetItemAsync(id);
-            if (item == null)
-            {
-                return NotFound();
-            }
-
-            return View(item);
-        }
-
-        [HttpPost]
-        [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmedAsync([Bind("id")] string id)
-        {
-            await _cosmosDbService.DeleteItemAsync(id);
-            return RedirectToAction("Index");
         }
 
         [ActionName("Details")]

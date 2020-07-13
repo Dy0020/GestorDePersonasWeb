@@ -11,8 +11,7 @@ namespace LaboratorioAzureCosmos.Service
         Task<IEnumerable<Persona>> GetItemsAsync(string query);
         Task<Persona> GetItemAsync(string id);
         Task AddItemAsync(Persona item);
-        Task UpdateItemAsync(string id, Persona libro);
-        Task DeleteItemAsync(string id);
+
 
 
     }

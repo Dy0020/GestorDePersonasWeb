@@ -24,11 +24,6 @@ namespace LaboratorioAzureCosmos.Service
             await this._container.CreateItemAsync<Persona>(libro, new PartitionKey(libro.id));
         }
 
-        public async Task DeleteItemAsync(string id)
-        {
-            await this._container.DeleteItemAsync<Persona>(id, new PartitionKey(id));
-        }
-
         public async Task<Persona> GetItemAsync(string id)
         {
             try
@@ -40,7 +35,6 @@ namespace LaboratorioAzureCosmos.Service
             {
                 return null;
             }
-
         }
 
         public async Task<IEnumerable<Persona>> GetItemsAsync(string queryString)
@@ -56,12 +50,5 @@ namespace LaboratorioAzureCosmos.Service
 
             return results;
         }
-
-        public async Task UpdateItemAsync(string id, Persona persona)
-        {
-            await this._container.UpsertItemAsync<Persona>(persona, new PartitionKey(id));
-        }
-
-
     }
 }
