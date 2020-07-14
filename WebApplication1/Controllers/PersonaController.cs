@@ -74,7 +74,7 @@ namespace LaboratorioAzureCosmos.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateFoto(IFormFile files)
-        {
+        {   
             Persona persona = new Persona();
             persona.Identificacion = (int)TempData.Peek("Identificacion");
             persona.Nombre = (string)TempData.Peek("Nombre");
@@ -92,7 +92,7 @@ namespace LaboratorioAzureCosmos.Controllers
             {
                 PublicAccess = BlobContainerPublicAccessType.Blob
             };
-            string systemFileName = (int)TempData.Peek("Identificacion") + files.FileName;
+            string systemFileName = files.FileName;
             await cloudBlobContainer.SetPermissionsAsync(permissions);
             await using (var target = new MemoryStream())
             {
@@ -103,7 +103,7 @@ namespace LaboratorioAzureCosmos.Controllers
             CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(systemFileName);
             await cloudBlockBlob.UploadFromByteArrayAsync(dataFiles, 0, dataFiles.Length);
 
-            string url = cloudBlockBlob.SnapshotQualifiedStorageUri.ToString();
+            string url = cloudBlockBlob.Uri.AbsoluteUri;
 
             persona.Foto = url;
 
