@@ -35,7 +35,7 @@ namespace LaboratorioAzureCosmos.Controllers
         [ActionName("Create")]
         public IActionResult Create()
         {
-           
+
             return View();
         }
 
@@ -43,15 +43,15 @@ namespace LaboratorioAzureCosmos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Persona persona)
         {
-            
 
             TempData[("Identificacion")] = persona.Identificacion;
             TempData[("Nombre")] = persona.Nombre;
             TempData[("PrimerApellido")] = persona.PrimerApellido;
             TempData[("SegundoApellido")] = persona.SegundoApellido;
-            
+
             return RedirectToAction("CreateFoto");
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -66,7 +66,7 @@ namespace LaboratorioAzureCosmos.Controllers
 
             return View(persona);
         }
-  
+
         public IActionResult CreateFoto()
         {
             return View();
@@ -76,8 +76,8 @@ namespace LaboratorioAzureCosmos.Controllers
         public async Task<IActionResult> CreateFoto(IFormFile files)
         {
             Persona persona = new Persona();
-            persona.Identificacion = (int) TempData.Peek("Identificacion");
-            persona.Nombre = (string) TempData.Peek("Nombre");
+            persona.Identificacion = (int)TempData.Peek("Identificacion");
+            persona.Nombre = (string)TempData.Peek("Nombre");
             persona.PrimerApellido = (string)TempData.Peek("PrimerApellido");
             persona.SegundoApellido = (string)TempData.Peek("SegundoApellido");
 

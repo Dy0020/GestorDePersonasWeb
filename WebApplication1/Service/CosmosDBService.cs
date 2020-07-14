@@ -24,6 +24,7 @@ namespace LaboratorioAzureCosmos.Service
             await this._container.CreateItemAsync<Persona>(persona, new PartitionKey(persona.id));
         }
 
+
         public async Task<Persona> GetItemAsync(int id)
         {
             try
