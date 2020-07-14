@@ -29,7 +29,7 @@ namespace WebApplication1.Models
         public string SegundoApellido { get; set; }
 
         [JsonProperty(PropertyName = "Foto")]
-        public Foto Foto { get; set; }
+        public string Foto { get; set; }
 
 
 

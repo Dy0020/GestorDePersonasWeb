@@ -3,38 +3,54 @@
 @{
     ViewData["Title"] = "Create";
 }
-<hr />
+
 <center>
-    <h1>Información De La Persona</h1>
+    <h1 style="background-color:darkslategray" class="text-white">Información De La Persona</h1>
 </center>
-<hr />
+<br />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Identificacion" class="control-label"></label>
+                <h5>
+                    <b> <label class="control-label text-dark">Identificación</label> </b>
+                </h5>
                 <input asp-for="Identificacion" class="form-control" required />
                 <span asp-validation-for="Identificacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
+                <h5>
+                    <b>
+                        <label asp-for="Nombre" class="control-label text-dark"></label>
+                    </b>
+                </h5>
                 <input asp-for="Nombre" class="form-control" required />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PrimerApellido" class="control-label"></label>
+                <h5>
+                    <b>
+                        <label class="control-label text-dark">Primer Apellido</label>
+                    </b>
+                </h5>
                 <input asp-for="PrimerApellido" class="form-control" required />
                 <span asp-validation-for="PrimerApellido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SegundoApellido" class="control-label"></label>
+                <h5>
+                    <b>
+                        <label class="control-label text-dark">Segundo Apellido</label>
+                    </b>
+                </h5>
                 <input asp-for="SegundoApellido" class="form-control" required />
                 <span asp-validation-for="SegundoApellido" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Agregar" class="btn btn-outline-dark" /> &nbsp;&nbsp;  <a class="btn btn-outline-dark" accesskeyasp-action="Index">Cancelar</a>
+                <input type="submit" value="Agregar" class="btn btn-outline-dark" /> &nbsp;&nbsp;&nbsp;&nbsp;  <a class="btn btn-outline-dark" asp-action="Index">Cancelar</a>
             </div>
+
         </form>
     </div>
 </div>
