@@ -7,15 +7,19 @@ using LaboratorioAzureCosmos.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace LaboratorioAzureCosmos.Controllers
 {
     public class PersonaController : Controller
     {
         private readonly ICosmosDbService _cosmosDbService;
+       
         public PersonaController(ICosmosDbService cosmosDbService)
         {
             _cosmosDbService = cosmosDbService;
+            
         }
+     
 
         [ActionName("Index")]
         public async Task<IActionResult> Index()
@@ -28,6 +32,7 @@ namespace LaboratorioAzureCosmos.Controllers
         {
             return View();
         }
+
 
         [HttpPost]
         [ActionName("Create")]
@@ -49,5 +54,6 @@ namespace LaboratorioAzureCosmos.Controllers
         {
             return View(await _cosmosDbService.GetItemAsync(id));
         }
+
     }
 }
