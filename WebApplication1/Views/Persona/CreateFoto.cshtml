@@ -16,7 +16,7 @@
                         </div>
 
                         <center>
-                            <input class="btn btn-outline-success" type="submit" value="Subir" /> &nbsp;&nbsp;&nbsp; <a class="btn btn-outline-dark" asp-action="Create">Cancelar</a>
+                            <input class="btn btn-outline-success" type="submit" onclick="return confirm('¿Está seguro de guardar lo ingresado en la base de datos?')" value="Agregar" /> &nbsp;&nbsp;&nbsp; <a class="btn btn-outline-dark" asp-action="Create">Cancelar</a>
                         </center>
                     </form>
             </div>
