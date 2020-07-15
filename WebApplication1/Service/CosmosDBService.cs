@@ -19,16 +19,17 @@ namespace LaboratorioAzureCosmos.Service
             this._container = dbClient.GetContainer(databaseName, containerName);
         }
 
-        public async Task AddItemAsync(Persona libro)
+        public async Task AddItemAsync(Persona persona)
         {
-            await this._container.CreateItemAsync<Persona>(libro, new PartitionKey(libro.id));
+            await this._container.CreateItemAsync<Persona>(persona, new PartitionKey(persona.id));
         }
 
-        public async Task<Persona> GetItemAsync(string id)
+
+        public async Task<Persona> GetItemAsync(int id)
         {
             try
             {
-                ItemResponse<Persona> response = await this._container.ReadItemAsync<Persona>(id, new PartitionKey(id));
+                ItemResponse<Persona> response = await this._container.ReadItemAsync<Persona>(id.ToString(), new PartitionKey(id));
                 return response.Resource;
             }
             catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)

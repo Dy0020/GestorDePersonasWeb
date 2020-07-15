@@ -14,7 +14,8 @@ namespace WebApplication1.Models
 
         [Required(ErrorMessage = "La identificación es requerida")]
         [JsonProperty(PropertyName = "Identificación")]
-        public int Identificacion { get; set; }
+        [MinLength(9), MaxLength(9)]
+        public string Identificacion { get; set; }
 
         [Required(ErrorMessage = "El nombre es requerido")]
         [JsonProperty(PropertyName = "Nombre")]
@@ -29,7 +30,7 @@ namespace WebApplication1.Models
         public string SegundoApellido { get; set; }
 
         [JsonProperty(PropertyName = "Foto")]
-        public Foto Foto { get; set; }
+        public string Foto { get; set; }
 
 
 

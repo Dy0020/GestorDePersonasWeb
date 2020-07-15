@@ -9,7 +9,7 @@ namespace LaboratorioAzureCosmos.Service
     public interface ICosmosDbService
     {
         Task<IEnumerable<Persona>> GetItemsAsync(string query);
-        Task<Persona> GetItemAsync(string id);
+        Task<Persona> GetItemAsync(int id);
         Task AddItemAsync(Persona item);
 
 

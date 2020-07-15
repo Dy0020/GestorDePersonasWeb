@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "CreateFoto";
+}
+    <center>
+        <h1 style="background-color:darkslategray" class="text-white">Agregue Una Foto</h1>
+        <br />
+    </center>
+        <div class="row">
+            <div class="col-md-5">
+               
+                    <form method="post" enctype="multipart/form-data" asp-controller="Persona" asp-action="CreateFoto">
+                        <div class="form-group">
+                                <h4>  <label class="text-dark"> Foto </label></h4>
+                                <input class="form-control" name="files" multiple="multiple" type="file" required />
+                            
+                        </div>
+
+                        <center>
+                            <input class="btn btn-outline-success" type="submit" onclick="return confirm('¿Está seguro de guardar lo ingresado en la base de datos?')" value="Agregar" /> &nbsp;&nbsp;&nbsp; <a class="btn btn-outline-dark" asp-action="Create">Cancelar</a>
+                        </center>
+                    </form>
+            </div>
+        </div>
+        
