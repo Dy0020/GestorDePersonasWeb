@@ -14,7 +14,7 @@ namespace WebApplication1.Models
 
         [Required(ErrorMessage = "La identificación es requerida")]
         [JsonProperty(PropertyName = "Identificación")]
-        public int Identificacion { get; set; }
+        public string Identificacion { get; set; }
 
         [Required(ErrorMessage = "El nombre es requerido")]
         [JsonProperty(PropertyName = "Nombre")]
