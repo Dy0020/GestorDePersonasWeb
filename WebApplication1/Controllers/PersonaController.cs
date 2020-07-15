@@ -76,7 +76,7 @@ namespace LaboratorioAzureCosmos.Controllers
         public async Task<IActionResult> CreateFoto(IFormFile files)
         {   
             Persona persona = new Persona();
-            persona.Identificacion = (int)TempData.Peek("Identificacion");
+            persona.Identificacion = (string)TempData.Peek("Identificacion");
             persona.Nombre = (string)TempData.Peek("Nombre");
             persona.PrimerApellido = (string)TempData.Peek("PrimerApellido");
             persona.SegundoApellido = (string)TempData.Peek("SegundoApellido");
